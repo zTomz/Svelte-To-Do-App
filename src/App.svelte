@@ -1,19 +1,24 @@
 <script>
-	let todos = [];
-
+	var todos = [];
+	
 	try {
 		// First, get the todos string from localStorage using the key "todos"
 		let todosString = localStorage.getItem("todos");
 
 		// Then, parse the string into an array using JSON.parse
 		todos = JSON.parse(todosString);
-	} catch(e) {}
-
+	} catch(e) {
+		console.log("Cant get todos")
+	}
 
 
 	let newTodo = "";
 
 	function removeFromList(todo) {
+		if(todos.length === 0) {
+			return;
+		}
+
 		let indexToRemove = 0;
 		for(let i = 0; i < todos.length; i++) {
 			if(todos[i].id === todo.id) {

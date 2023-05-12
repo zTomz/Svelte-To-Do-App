@@ -1,2 +1,902 @@
-var app=function(){"use strict";function t(){}function e(t){return t()}function n(){return Object.create(null)}function o(t){t.forEach(e)}function r(t){return"function"==typeof t}function c(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function l(t,e){t.appendChild(e)}function u(t,e,n){t.insertBefore(e,n||null)}function i(t){t.parentNode&&t.parentNode.removeChild(t)}function a(t){return document.createElement(t)}function s(t){return document.createTextNode(t)}function d(){return s(" ")}function f(t,e,n,o){return t.addEventListener(e,n,o),()=>t.removeEventListener(e,n,o)}function p(t,e,n){null==n?t.removeAttribute(e):t.getAttribute(e)!==n&&t.setAttribute(e,n)}function h(t,e){e=""+e,t.data!==e&&(t.data=e)}function m(t,e){t.value=null==e?"":e}let g;function $(t){g=t}new Set,new Map;const y=[],b=[];let v=[];const _=[],x=Promise.resolve();let w=!1;function k(t){v.push(t)}const E=new Set;let S=0;function N(){if(0!==S)return;const t=g;do{try{for(;S<y.length;){const t=y[S];S++,$(t),O(t.$$)}}catch(t){throw y.length=0,S=0,t}for($(null),y.length=0,S=0;b.length;)b.pop()();for(let t=0;t<v.length;t+=1){const e=v[t];E.has(e)||(E.add(e),e())}v.length=0}while(y.length);for(;_.length;)_.pop()();w=!1,E.clear(),$(t)}function O(t){if(null!==t.fragment){t.update(),o(t.before_update);const e=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,e),t.after_update.forEach(k)}}const M=new Set;function q(t,e){const n=t.$$;null!==n.fragment&&(!function(t){const e=[],n=[];v.forEach((o=>-1===t.indexOf(o)?e.push(o):n.push(o))),n.forEach((t=>t())),v=e}(n.after_update),o(n.on_destroy),n.fragment&&n.fragment.d(e),n.on_destroy=n.fragment=null,n.ctx=[])}function A(t,e){-1===t.$$.dirty[0]&&(y.push(t),w||(w=!0,x.then(N)),t.$$.dirty.fill(0)),t.$$.dirty[e/31|0]|=1<<e%31}function j(c,l,u,a,s,d,f,p=[-1]){const h=g;$(c);const m=c.$$={fragment:null,ctx:[],props:d,update:t,not_equal:s,bound:n(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(l.context||(h?h.$$.context:[])),callbacks:n(),dirty:p,skip_bound:!1,root:l.target||h.$$.root};f&&f(m.root);let y=!1;if(m.ctx=u?u(c,l.props||{},((t,e,...n)=>{const o=n.length?n[0]:e;return m.ctx&&s(m.ctx[t],m.ctx[t]=o)&&(!m.skip_bound&&m.bound[t]&&m.bound[t](o),y&&A(c,t)),e})):[],m.update(),y=!0,o(m.before_update),m.fragment=!!a&&a(m.ctx),l.target){if(l.hydrate){const t=function(t){return Array.from(t.childNodes)}(l.target);m.fragment&&m.fragment.l(t),t.forEach(i)}else m.fragment&&m.fragment.c();l.intro&&((b=c.$$.fragment)&&b.i&&(M.delete(b),b.i(v))),function(t,n,c,l){const{fragment:u,after_update:i}=t.$$;u&&u.m(n,c),l||k((()=>{const n=t.$$.on_mount.map(e).filter(r);t.$$.on_destroy?t.$$.on_destroy.push(...n):o(n),t.$$.on_mount=[]})),i.forEach(k)}(c,l.target,l.anchor,l.customElement),N()}var b,v;$(h)}new Set(["allowfullscreen","allowpaymentrequest","async","autofocus","autoplay","checked","controls","default","defer","disabled","formnovalidate","hidden","inert","ismap","loop","multiple","muted","nomodule","novalidate","open","playsinline","readonly","required","reversed","selected"]);class I{$destroy(){q(this,1),this.$destroy=t}$on(e,n){if(!r(n))return t;const o=this.$$.callbacks[e]||(this.$$.callbacks[e]=[]);return o.push(n),()=>{const t=o.indexOf(n);-1!==t&&o.splice(t,1)}}$set(t){var e;this.$$set&&(e=t,0!==Object.keys(e).length)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}function L(t,e,n){const o=t.slice();return o[10]=e[n],o}function P(t){let e,n,o,r,c=t[10].content+"";function d(){return t[7](t[10])}return{c(){e=a("div"),n=s(c),p(e,"class","item-content")},m(t,c){u(t,e,c),l(e,n),o||(r=f(e,"click",d),o=!0)},p(e,o){t=e,1&o&&c!==(c=t[10].content+"")&&h(n,c)},d(t){t&&i(e),o=!1,r()}}}function C(t){let e,n,o,r,c=t[10].content+"";function d(){return t[6](t[10])}return{c(){var t,o,r,l;e=a("div"),n=s(c),p(e,"class","item-content"),t=e,o="text-decoration",null===(r="line-through")?t.style.removeProperty(o):t.style.setProperty(o,r,l?"important":"")},m(t,c){u(t,e,c),l(e,n),o||(r=f(e,"click",d),o=!0)},p(e,o){t=e,1&o&&c!==(c=t[10].content+"")&&h(n,c)},d(t){t&&i(e),o=!1,r()}}}function J(t){let e,n,o,r,c,s;function h(){return t[5](t[10])}function m(t,e){return t[10].done?C:P}let g=m(t),$=g(t);return{c(){e=a("li"),n=a("div"),n.innerHTML='<i class="fa-solid fa-trash"></i>',o=d(),$.c(),r=d(),p(n,"class","delete-icon svelte-dpbga7"),p(e,"class","item svelte-dpbga7")},m(t,i){u(t,e,i),l(e,n),l(e,o),$.m(e,null),l(e,r),c||(s=f(n,"click",h),c=!0)},p(n,o){g===(g=m(t=n))&&$?$.p(t,o):($.d(1),$=g(t),$&&($.c(),$.m(e,r)))},d(t){t&&i(e),$.d(),c=!1,s()}}}function T(e){let n,r,c,s,h,g,$=e[0],y=[];for(let t=0;t<$.length;t+=1)y[t]=J(L(e,$,t));return{c(){n=a("div"),r=a("ul");for(let t=0;t<y.length;t+=1)y[t].c();c=d(),s=a("input"),p(r,"class","to-do-list svelte-dpbga7"),p(s,"type","text"),p(s,"placeholder","New todo..."),s.required=!0,p(s,"class","svelte-dpbga7"),p(n,"class","wrapper svelte-dpbga7")},m(t,o){u(t,n,o),l(n,r);for(let t=0;t<y.length;t+=1)y[t]&&y[t].m(r,null);l(n,c),l(n,s),m(s,e[1]),h||(g=[f(s,"input",e[8]),f(s,"change",e[4])],h=!0)},p(t,[e]){if(13&e){let n;for($=t[0],n=0;n<$.length;n+=1){const o=L(t,$,n);y[n]?y[n].p(o,e):(y[n]=J(o),y[n].c(),y[n].m(r,null))}for(;n<y.length;n+=1)y[n].d(1);y.length=$.length}2&e&&s.value!==t[1]&&m(s,t[1])},i:t,o:t,d(t){t&&i(n),function(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}(y,t),h=!1,o(g)}}}function B(t,e,n){let o=[];try{let t=localStorage.getItem("todos");o=JSON.parse(t)}catch(t){}let r="";function c(t){let e=0;for(let n=0;n<o.length;n++)o[n].id===t.id&&(e=n);o.splice(e,1),n(0,o)}function l(t){let e=o.findIndex((e=>e.id===t));-1!==e&&n(0,o[e].done=!o[e].done,o),u()}function u(){let t=JSON.stringify(o);localStorage.setItem("todos",t)}return[o,r,c,l,function(){o.push({content:r,done:!1,id:Math.floor(1e4*Math.random())}),n(0,o),n(1,r=""),u()},t=>c({todo:t}),t=>l(t.id),t=>l(t.id),function(){r=this.value,n(1,r)}]}return new class extends I{constructor(t){super(),j(this,t,B,T,c,{})}}({target:document.body,props:{}})}();
+
+(function(l, r) { if (!l || l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (self.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(self.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+
+    new Set();
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        if (node.parentNode) {
+            node.parentNode.removeChild(node);
+        }
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    function set_style(node, key, value, important) {
+        if (value === null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
+    }
+    function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, cancelable, detail);
+        return e;
+    }
+
+    // we need to store the information for multiple documents because a Svelte application could also contain iframes
+    // https://github.com/sveltejs/svelte/issues/3624
+    new Map();
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    let render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = /* @__PURE__ */ Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    // flush() calls callbacks in this order:
+    // 1. All beforeUpdate callbacks, in order: parents before children
+    // 2. All bind:this callbacks, in reverse order: children before parents.
+    // 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+    //    for afterUpdates called during the initial onMount, which are called in
+    //    reverse order: children before parents.
+    // Since callbacks might update component values, which could trigger another
+    // call to flush(), the following steps guard against this:
+    // 1. During beforeUpdate, any updated components will be added to the
+    //    dirty_components array and will cause a reentrant call to flush(). Because
+    //    the flush index is kept outside the function, the reentrant call will pick
+    //    up where the earlier call left off and go through all dirty components. The
+    //    current_component value is saved and restored so that the reentrant call will
+    //    not interfere with the "parent" flush() call.
+    // 2. bind:this callbacks cannot trigger new flush() calls.
+    // 3. During afterUpdate, any updated components will NOT have their afterUpdate
+    //    callback called a second time; the seen_callbacks set, outside the flush()
+    //    function, guarantees this behavior.
+    const seen_callbacks = new Set();
+    let flushidx = 0; // Do *not* move this inside the flush() function
+    function flush() {
+        // Do not reenter flush while dirty components are updated, as this can
+        // result in an infinite loop. Instead, let the inner flush handle it.
+        // Reentrancy is ok afterwards for bindings etc.
+        if (flushidx !== 0) {
+            return;
+        }
+        const saved_component = current_component;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            try {
+                while (flushidx < dirty_components.length) {
+                    const component = dirty_components[flushidx];
+                    flushidx++;
+                    set_current_component(component);
+                    update(component.$$);
+                }
+            }
+            catch (e) {
+                // reset dirty state to not end up in a deadlocked state and then rethrow
+                dirty_components.length = 0;
+                flushidx = 0;
+                throw e;
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            flushidx = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        seen_callbacks.clear();
+        set_current_component(saved_component);
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    /**
+     * Useful for example to execute remaining `afterUpdate` callbacks before executing `destroy`.
+     */
+    function flush_render_callbacks(fns) {
+        const filtered = [];
+        const targets = [];
+        render_callbacks.forEach((c) => fns.indexOf(c) === -1 ? filtered.push(c) : targets.push(c));
+        targets.forEach((c) => c());
+        render_callbacks = filtered;
+    }
+    const outroing = new Set();
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+
+    const _boolean_attributes = [
+        'allowfullscreen',
+        'allowpaymentrequest',
+        'async',
+        'autofocus',
+        'autoplay',
+        'checked',
+        'controls',
+        'default',
+        'defer',
+        'disabled',
+        'formnovalidate',
+        'hidden',
+        'inert',
+        'ismap',
+        'loop',
+        'multiple',
+        'muted',
+        'nomodule',
+        'novalidate',
+        'open',
+        'playsinline',
+        'readonly',
+        'required',
+        'reversed',
+        'selected'
+    ];
+    /**
+     * List of HTML boolean attributes (e.g. `<input disabled>`).
+     * Source: https://html.spec.whatwg.org/multipage/indices.html
+     */
+    new Set([..._boolean_attributes]);
+    function mount_component(component, target, anchor, customElement) {
+        const { fragment, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        if (!customElement) {
+            // onMount happens before the initial afterUpdate
+            add_render_callback(() => {
+                const new_on_destroy = component.$$.on_mount.map(run).filter(is_function);
+                // if the component was destroyed immediately
+                // it will update the `$$.on_destroy` reference to `null`.
+                // the destructured on_destroy may still reference to the old array
+                if (component.$$.on_destroy) {
+                    component.$$.on_destroy.push(...new_on_destroy);
+                }
+                else {
+                    // Edge case - component was destroyed immediately,
+                    // most likely as a result of a binding initialising
+                    run_all(new_on_destroy);
+                }
+                component.$$.on_mount = [];
+            });
+        }
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            flush_render_callbacks($$.after_update);
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: [],
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            on_disconnect: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false,
+            root: options.target || parent_component.$$.root
+        };
+        append_styles && append_styles($$.root);
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, options.props || {}, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor, options.customElement);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            if (!is_function(callback)) {
+                return noop;
+            }
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.58.0' }, detail), { bubbles: true }));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation, has_stop_immediate_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        if (has_stop_immediate_propagation)
+            modifiers.push('stopImmediatePropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.data === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    /* src\App.svelte generated by Svelte v3.58.0 */
+
+    const { console: console_1 } = globals;
+    const file = "src\\App.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[10] = list[i];
+    	return child_ctx;
+    }
+
+    // (72:4) {:else}
+    function create_else_block(ctx) {
+    	let div;
+    	let t_value = /*todo*/ ctx[10].content + "";
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	function click_handler_2() {
+    		return /*click_handler_2*/ ctx[7](/*todo*/ ctx[10]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t = text(t_value);
+    			attr_dev(div, "class", "item-content");
+    			add_location(div, file, 72, 4, 1892);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div, "click", click_handler_2, false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty & /*todos*/ 1 && t_value !== (t_value = /*todo*/ ctx[10].content + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(72:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (68:4) {#if todo.done}
+    function create_if_block(ctx) {
+    	let div;
+    	let t_value = /*todo*/ ctx[10].content + "";
+    	let t;
+    	let mounted;
+    	let dispose;
+
+    	function click_handler_1() {
+    		return /*click_handler_1*/ ctx[6](/*todo*/ ctx[10]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			t = text(t_value);
+    			attr_dev(div, "class", "item-content");
+    			set_style(div, "text-decoration", "line-through");
+    			add_location(div, file, 68, 4, 1734);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, t);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div, "click", click_handler_1, false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+    			if (dirty & /*todos*/ 1 && t_value !== (t_value = /*todo*/ ctx[10].content + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(68:4) {#if todo.done}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (61:2) {#each todos as todo}
+    function create_each_block(ctx) {
+    	let li;
+    	let div;
+    	let i;
+    	let t0;
+    	let t1;
+    	let mounted;
+    	let dispose;
+
+    	function click_handler() {
+    		return /*click_handler*/ ctx[5](/*todo*/ ctx[10]);
+    	}
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*todo*/ ctx[10].done) return create_if_block;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			div = element("div");
+    			i = element("i");
+    			t0 = space();
+    			if_block.c();
+    			t1 = space();
+    			attr_dev(i, "class", "fa-solid fa-trash");
+    			add_location(i, file, 64, 5, 1599);
+    			attr_dev(div, "class", "delete-icon svelte-dpbga7");
+    			add_location(div, file, 63, 4, 1527);
+    			attr_dev(li, "class", "item svelte-dpbga7");
+    			add_location(li, file, 61, 3, 1442);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, div);
+    			append_dev(div, i);
+    			append_dev(li, t0);
+    			if_block.m(li, null);
+    			append_dev(li, t1);
+
+    			if (!mounted) {
+    				dispose = listen_dev(div, "click", click_handler, false, false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(new_ctx, dirty) {
+    			ctx = new_ctx;
+
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(li, t1);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    			if_block.d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(61:2) {#each todos as todo}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment(ctx) {
+    	let div;
+    	let ul;
+    	let t;
+    	let input;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*todos*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t = space();
+    			input = element("input");
+    			attr_dev(ul, "class", "to-do-list svelte-dpbga7");
+    			add_location(ul, file, 59, 1, 1389);
+    			attr_dev(input, "type", "text");
+    			attr_dev(input, "placeholder", "New todo...");
+    			input.required = true;
+    			attr_dev(input, "class", "svelte-dpbga7");
+    			add_location(input, file, 80, 1, 2037);
+    			attr_dev(div, "class", "wrapper svelte-dpbga7");
+    			add_location(div, file, 58, 0, 1365);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(ul, null);
+    				}
+    			}
+
+    			append_dev(div, t);
+    			append_dev(div, input);
+    			set_input_value(input, /*newTodo*/ ctx[1]);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[8]),
+    					listen_dev(input, "change", /*addTodo*/ ctx[4], false, false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*toggleTodoDone, todos, removeFromList*/ 13) {
+    				each_value = /*todos*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+
+    			if (dirty & /*newTodo*/ 2 && input.value !== /*newTodo*/ ctx[1]) {
+    				set_input_value(input, /*newTodo*/ ctx[1]);
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots('App', slots, []);
+    	var todos = [];
+
+    	try {
+    		// First, get the todos string from localStorage using the key "todos"
+    		let todosString = localStorage.getItem("todos");
+
+    		// Then, parse the string into an array using JSON.parse
+    		todos = JSON.parse(todosString);
+    	} catch(e) {
+    		console.log("Cant get todos");
+    	}
+
+    	let newTodo = "";
+
+    	function removeFromList(todo) {
+    		if (todos.length === 0) {
+    			return;
+    		}
+
+    		let indexToRemove = 0;
+
+    		for (let i = 0; i < todos.length; i++) {
+    			if (todos[i].id === todo.id) {
+    				indexToRemove = i;
+    			}
+    		}
+
+    		todos.splice(indexToRemove, 1);
+    		$$invalidate(0, todos);
+    	}
+
+    	function toggleTodoDone(id) {
+    		let todoIndex = todos.findIndex(todo => todo.id === id); // find the index of the todo with the given id
+
+    		if (todoIndex !== -1) {
+    			// check if the todo exists
+    			$$invalidate(0, todos[todoIndex].done = !todos[todoIndex].done, todos); // toggle the "done" property of the todo
+    		}
+
+    		save();
+    	}
+
+    	function addTodo() {
+    		todos.push({
+    			content: newTodo,
+    			done: false,
+    			id: Math.floor(Math.random() * 10000)
+    		});
+
+    		$$invalidate(0, todos);
+    		$$invalidate(1, newTodo = "");
+    		save();
+    	}
+
+    	function save() {
+    		// First, convert your todos array to a string using JSON.stringify
+    		let todosString = JSON.stringify(todos);
+
+    		// Then, save the string to localStorage under the key "todos"
+    		localStorage.setItem("todos", todosString);
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	const click_handler = todo => removeFromList({ todo });
+    	const click_handler_1 = todo => toggleTodoDone(todo.id);
+    	const click_handler_2 = todo => toggleTodoDone(todo.id);
+
+    	function input_input_handler() {
+    		newTodo = this.value;
+    		$$invalidate(1, newTodo);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		todos,
+    		newTodo,
+    		removeFromList,
+    		toggleTodoDone,
+    		addTodo,
+    		save
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('todos' in $$props) $$invalidate(0, todos = $$props.todos);
+    		if ('newTodo' in $$props) $$invalidate(1, newTodo = $$props.newTodo);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		todos,
+    		newTodo,
+    		removeFromList,
+    		toggleTodoDone,
+    		addTodo,
+    		click_handler,
+    		click_handler_1,
+    		click_handler_2,
+    		input_input_handler
+    	];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+    }
+
+    const app = new App({
+    	target: document.body,
+    	props: {}
+    });
+
+    return app;
+
+})();
 //# sourceMappingURL=bundle.js.map
