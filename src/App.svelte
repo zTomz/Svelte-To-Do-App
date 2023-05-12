@@ -7,11 +7,13 @@
 
 		// Then, parse the string into an array using JSON.parse
 		todos = JSON.parse(todosString);
-		console.log(todos);
+		
+		if(todos === null) {
+			todos = [];
+		}
 	} catch(e) {
-		console.log("Cant get todos");
+		console.log("Can't get todos");
 	}
-
 
 	let newTodo = "";
 
