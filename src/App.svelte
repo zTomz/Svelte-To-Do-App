@@ -7,8 +7,9 @@
 
 		// Then, parse the string into an array using JSON.parse
 		todos = JSON.parse(todosString);
+		console.log(todos);
 	} catch(e) {
-		console.log("Cant get todos")
+		console.log("Cant get todos");
 	}
 
 
@@ -79,7 +80,7 @@
 			{/each}
 		</ul>
 	{/if}
-	
+
 	<input type="text" placeholder="New todo..." required  bind:value={newTodo} on:change={addTodo}/>
 </div>
 

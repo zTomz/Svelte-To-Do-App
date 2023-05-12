@@ -469,7 +469,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (60:1) {#if todos && todos.length > 0}
+    // (61:1) {#if todos && todos.length > 0}
     function create_if_block(ctx) {
     	let ul;
     	let each_value = /*todos*/ ctx[0];
@@ -489,7 +489,7 @@ var app = (function () {
     			}
 
     			attr_dev(ul, "class", "to-do-list svelte-dpbga7");
-    			add_location(ul, file, 60, 2, 1424);
+    			add_location(ul, file, 61, 2, 1448);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -535,14 +535,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(60:1) {#if todos && todos.length > 0}",
+    		source: "(61:1) {#if todos && todos.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (73:5) {:else}
+    // (74:5) {:else}
     function create_else_block(ctx) {
     	let div;
     	let t_value = /*todo*/ ctx[10].content + "";
@@ -559,7 +559,7 @@ var app = (function () {
     			div = element("div");
     			t = text(t_value);
     			attr_dev(div, "class", "item-content");
-    			add_location(div, file, 73, 5, 1940);
+    			add_location(div, file, 74, 5, 1964);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -585,14 +585,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(73:5) {:else}",
+    		source: "(74:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:5) {#if todo.done}
+    // (70:5) {#if todo.done}
     function create_if_block_1(ctx) {
     	let div;
     	let t_value = /*todo*/ ctx[10].content + "";
@@ -610,7 +610,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "item-content");
     			set_style(div, "text-decoration", "line-through");
-    			add_location(div, file, 69, 5, 1778);
+    			add_location(div, file, 70, 5, 1802);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -636,14 +636,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(69:5) {#if todo.done}",
+    		source: "(70:5) {#if todo.done}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (62:3) {#each todos as todo}
+    // (63:3) {#each todos as todo}
     function create_each_block(ctx) {
     	let li;
     	let div;
@@ -674,11 +674,11 @@ var app = (function () {
     			if_block.c();
     			t1 = space();
     			attr_dev(i, "class", "fa-solid fa-trash");
-    			add_location(i, file, 65, 6, 1639);
+    			add_location(i, file, 66, 6, 1663);
     			attr_dev(div, "class", "delete-icon svelte-dpbga7");
-    			add_location(div, file, 64, 5, 1566);
+    			add_location(div, file, 65, 5, 1590);
     			attr_dev(li, "class", "item svelte-dpbga7");
-    			add_location(li, file, 62, 4, 1479);
+    			add_location(li, file, 63, 4, 1503);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -720,7 +720,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(62:3) {#each todos as todo}",
+    		source: "(63:3) {#each todos as todo}",
     		ctx
     	});
 
@@ -745,9 +745,9 @@ var app = (function () {
     			attr_dev(input, "placeholder", "New todo...");
     			input.required = true;
     			attr_dev(input, "class", "svelte-dpbga7");
-    			add_location(input, file, 82, 1, 2100);
+    			add_location(input, file, 83, 1, 2123);
     			attr_dev(div, "class", "wrapper svelte-dpbga7");
-    			add_location(div, file, 58, 0, 1365);
+    			add_location(div, file, 59, 0, 1389);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -818,6 +818,8 @@ var app = (function () {
 
     		// Then, parse the string into an array using JSON.parse
     		todos = JSON.parse(todosString);
+
+    		console.log(todos);
     	} catch(e) {
     		console.log("Cant get todos");
     	}
