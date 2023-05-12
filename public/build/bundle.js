@@ -469,7 +469,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (63:1) {#if todos && todos.length > 0}
+    // (64:1) {#if todos && todos.length > 0}
     function create_if_block(ctx) {
     	let ul;
     	let each_value = /*todos*/ ctx[0];
@@ -489,7 +489,7 @@ var app = (function () {
     			}
 
     			attr_dev(ul, "class", "to-do-list svelte-dpbga7");
-    			add_location(ul, file, 63, 2, 1473);
+    			add_location(ul, file, 64, 2, 1484);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul, anchor);
@@ -535,14 +535,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(63:1) {#if todos && todos.length > 0}",
+    		source: "(64:1) {#if todos && todos.length > 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (76:5) {:else}
+    // (77:5) {:else}
     function create_else_block(ctx) {
     	let div;
     	let t_value = /*todo*/ ctx[10].content + "";
@@ -559,7 +559,7 @@ var app = (function () {
     			div = element("div");
     			t = text(t_value);
     			attr_dev(div, "class", "item-content");
-    			add_location(div, file, 76, 5, 1989);
+    			add_location(div, file, 77, 5, 2000);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -585,14 +585,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(76:5) {:else}",
+    		source: "(77:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:5) {#if todo.done}
+    // (73:5) {#if todo.done}
     function create_if_block_1(ctx) {
     	let div;
     	let t_value = /*todo*/ ctx[10].content + "";
@@ -610,7 +610,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "item-content");
     			set_style(div, "text-decoration", "line-through");
-    			add_location(div, file, 72, 5, 1827);
+    			add_location(div, file, 73, 5, 1838);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -636,14 +636,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(72:5) {#if todo.done}",
+    		source: "(73:5) {#if todo.done}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (65:3) {#each todos as todo}
+    // (66:3) {#each todos as todo}
     function create_each_block(ctx) {
     	let li;
     	let div;
@@ -674,11 +674,11 @@ var app = (function () {
     			if_block.c();
     			t1 = space();
     			attr_dev(i, "class", "fa-solid fa-trash");
-    			add_location(i, file, 68, 6, 1688);
+    			add_location(i, file, 69, 6, 1699);
     			attr_dev(div, "class", "delete-icon svelte-dpbga7");
-    			add_location(div, file, 67, 5, 1615);
+    			add_location(div, file, 68, 5, 1626);
     			attr_dev(li, "class", "item svelte-dpbga7");
-    			add_location(li, file, 65, 4, 1528);
+    			add_location(li, file, 66, 4, 1539);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -720,7 +720,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(65:3) {#each todos as todo}",
+    		source: "(66:3) {#each todos as todo}",
     		ctx
     	});
 
@@ -745,9 +745,9 @@ var app = (function () {
     			attr_dev(input, "placeholder", "New todo...");
     			input.required = true;
     			attr_dev(input, "class", "svelte-dpbga7");
-    			add_location(input, file, 85, 1, 2148);
+    			add_location(input, file, 86, 1, 2159);
     			attr_dev(div, "class", "wrapper svelte-dpbga7");
-    			add_location(div, file, 61, 0, 1414);
+    			add_location(div, file, 62, 0, 1425);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -843,6 +843,7 @@ var app = (function () {
 
     		todos.splice(indexToRemove, 1);
     		$$invalidate(0, todos);
+    		save();
     	}
 
     	function toggleTodoDone(id) {

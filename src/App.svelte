@@ -31,6 +31,7 @@
 
 		todos.splice(indexToRemove, 1);
 		todos = todos;
+		save();
 	}
 
 	function toggleTodoDone(id) {
