@@ -469,7 +469,80 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (72:4) {:else}
+    // (60:1) {#if todos && todos.length > 0}
+    function create_if_block(ctx) {
+    	let ul;
+    	let each_value = /*todos*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(ul, "class", "to-do-list svelte-dpbga7");
+    			add_location(ul, file, 60, 2, 1424);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, ul, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				if (each_blocks[i]) {
+    					each_blocks[i].m(ul, null);
+    				}
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*toggleTodoDone, todos, removeFromList*/ 13) {
+    				each_value = /*todos*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(ul);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(60:1) {#if todos && todos.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (73:5) {:else}
     function create_else_block(ctx) {
     	let div;
     	let t_value = /*todo*/ ctx[10].content + "";
@@ -486,7 +559,7 @@ var app = (function () {
     			div = element("div");
     			t = text(t_value);
     			attr_dev(div, "class", "item-content");
-    			add_location(div, file, 72, 4, 1892);
+    			add_location(div, file, 73, 5, 1940);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -512,15 +585,15 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(72:4) {:else}",
+    		source: "(73:5) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (68:4) {#if todo.done}
-    function create_if_block(ctx) {
+    // (69:5) {#if todo.done}
+    function create_if_block_1(ctx) {
     	let div;
     	let t_value = /*todo*/ ctx[10].content + "";
     	let t;
@@ -537,7 +610,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "item-content");
     			set_style(div, "text-decoration", "line-through");
-    			add_location(div, file, 68, 4, 1734);
+    			add_location(div, file, 69, 5, 1778);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -561,16 +634,16 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block.name,
+    		id: create_if_block_1.name,
     		type: "if",
-    		source: "(68:4) {#if todo.done}",
+    		source: "(69:5) {#if todo.done}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:2) {#each todos as todo}
+    // (62:3) {#each todos as todo}
     function create_each_block(ctx) {
     	let li;
     	let div;
@@ -585,7 +658,7 @@ var app = (function () {
     	}
 
     	function select_block_type(ctx, dirty) {
-    		if (/*todo*/ ctx[10].done) return create_if_block;
+    		if (/*todo*/ ctx[10].done) return create_if_block_1;
     		return create_else_block;
     	}
 
@@ -601,11 +674,11 @@ var app = (function () {
     			if_block.c();
     			t1 = space();
     			attr_dev(i, "class", "fa-solid fa-trash");
-    			add_location(i, file, 64, 5, 1599);
+    			add_location(i, file, 65, 6, 1639);
     			attr_dev(div, "class", "delete-icon svelte-dpbga7");
-    			add_location(div, file, 63, 4, 1527);
+    			add_location(div, file, 64, 5, 1566);
     			attr_dev(li, "class", "item svelte-dpbga7");
-    			add_location(li, file, 61, 3, 1442);
+    			add_location(li, file, 62, 4, 1479);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -647,7 +720,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(61:2) {#each todos as todo}",
+    		source: "(62:3) {#each todos as todo}",
     		ctx
     	});
 
@@ -656,37 +729,23 @@ var app = (function () {
 
     function create_fragment(ctx) {
     	let div;
-    	let ul;
     	let t;
     	let input;
     	let mounted;
     	let dispose;
-    	let each_value = /*todos*/ ctx[0];
-    	validate_each_argument(each_value);
-    	let each_blocks = [];
-
-    	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
-    	}
+    	let if_block = /*todos*/ ctx[0] && /*todos*/ ctx[0].length > 0 && create_if_block(ctx);
 
     	const block = {
     		c: function create() {
     			div = element("div");
-    			ul = element("ul");
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				each_blocks[i].c();
-    			}
-
+    			if (if_block) if_block.c();
     			t = space();
     			input = element("input");
-    			attr_dev(ul, "class", "to-do-list svelte-dpbga7");
-    			add_location(ul, file, 59, 1, 1389);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", "New todo...");
     			input.required = true;
     			attr_dev(input, "class", "svelte-dpbga7");
-    			add_location(input, file, 80, 1, 2037);
+    			add_location(input, file, 82, 1, 2100);
     			attr_dev(div, "class", "wrapper svelte-dpbga7");
     			add_location(div, file, 58, 0, 1365);
     		},
@@ -695,14 +754,7 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
-    			append_dev(div, ul);
-
-    			for (let i = 0; i < each_blocks.length; i += 1) {
-    				if (each_blocks[i]) {
-    					each_blocks[i].m(ul, null);
-    				}
-    			}
-
+    			if (if_block) if_block.m(div, null);
     			append_dev(div, t);
     			append_dev(div, input);
     			set_input_value(input, /*newTodo*/ ctx[1]);
@@ -717,28 +769,17 @@ var app = (function () {
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*toggleTodoDone, todos, removeFromList*/ 13) {
-    				each_value = /*todos*/ ctx[0];
-    				validate_each_argument(each_value);
-    				let i;
-
-    				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
-
-    					if (each_blocks[i]) {
-    						each_blocks[i].p(child_ctx, dirty);
-    					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
-    						each_blocks[i].c();
-    						each_blocks[i].m(ul, null);
-    					}
+    			if (/*todos*/ ctx[0] && /*todos*/ ctx[0].length > 0) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					if_block.m(div, t);
     				}
-
-    				for (; i < each_blocks.length; i += 1) {
-    					each_blocks[i].d(1);
-    				}
-
-    				each_blocks.length = each_value.length;
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
     			}
 
     			if (dirty & /*newTodo*/ 2 && input.value !== /*newTodo*/ ctx[1]) {
@@ -749,7 +790,7 @@ var app = (function () {
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
-    			destroy_each(each_blocks, detaching);
+    			if (if_block) if_block.d();
     			mounted = false;
     			run_all(dispose);
     		}
@@ -769,7 +810,7 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	var todos = [];
+    	let todos = [];
 
     	try {
     		// First, get the todos string from localStorage using the key "todos"

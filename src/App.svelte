@@ -1,5 +1,5 @@
 <script>
-	var todos = [];
+	let todos = [];
 	
 	try {
 		// First, get the todos string from localStorage using the key "todos"
@@ -57,27 +57,29 @@
 </script>
 
 <div class="wrapper">
-	<ul class="to-do-list">
-		{#each todos as todo}
-			<li class="item">
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				<div on:click={() => removeFromList({todo})} class="delete-icon">
-					<i class="fa-solid fa-trash"></i>
-				</div>
-				<!-- svelte-ignore a11y-click-events-have-key-events -->
-				{#if todo.done} 
-				<div class="item-content" on:click={() => toggleTodoDone(todo.id)} style="text-decoration: line-through;">
-					{todo.content}
-				</div>
-				{:else}
-				<div class="item-content" on:click={() => toggleTodoDone(todo.id)}>
-					{todo.content}
-				</div>
-				{/if}
-			</li>
-		{/each}
-	</ul>
-
+	{#if todos && todos.length > 0}
+		<ul class="to-do-list">
+			{#each todos as todo}
+				<li class="item">
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					<div on:click={() => removeFromList({todo})} class="delete-icon">
+						<i class="fa-solid fa-trash"></i>
+					</div>
+					<!-- svelte-ignore a11y-click-events-have-key-events -->
+					{#if todo.done} 
+					<div class="item-content" on:click={() => toggleTodoDone(todo.id)} style="text-decoration: line-through;">
+						{todo.content}
+					</div>
+					{:else}
+					<div class="item-content" on:click={() => toggleTodoDone(todo.id)}>
+						{todo.content}
+					</div>
+					{/if}
+				</li>
+			{/each}
+		</ul>
+	{/if}
+	
 	<input type="text" placeholder="New todo..." required  bind:value={newTodo} on:change={addTodo}/>
 </div>
 
